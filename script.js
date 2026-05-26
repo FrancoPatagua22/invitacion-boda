@@ -608,7 +608,7 @@ document.addEventListener('keydown', function(e) {
   // Pantalla de bienvenida: el click en "ABRIR INVITACIÓN" garantiza
   // una interacción real, destrabando el autoplay en todos los navegadores
   var openBtn = document.getElementById('open-invitation');
-  var overlay = document.querySelector('.welcome-entry-premium');
+  var overlay = document.querySelector('.welcome-floral-entry');
   if (openBtn && overlay) {
     document.body.style.overflow = 'hidden';
     openBtn.addEventListener('click', function() {
