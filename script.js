@@ -4,22 +4,22 @@
    DATOS POR DEFECTO
 ══════════════════════════════════════════════════════ */
 var DEFAULTS = {
-  names:        'Nombre & Nombre',
-  eventDate:    '2026-05-28T21:00',
-  displayDate:  '28 de Mayo de 2026',
+  names:        'Muñeca & Gamez',
+  eventDate:    '2026-06-20T21:30',
+  displayDate:  '20 de Junio de 2026',
   venue:        'Salón San Carlos · Buenos Aires',
-  mapsUrl:      'https://www.google.com/maps/search/?api=1&query=Salon+San+Carlos+Buenos+Aires',
+  mapsUrl:      'https://maps.app.goo.gl/Ukrk7e4KT4DcuVfq9?g_st=aw',
   cbu:          '0000003100012345678901',
   alias:        'TU.ALIAS.ACA',
   heroImage:    'https://images.unsplash.com/photo-1519741497674-611481863552?w=1400&q=80&auto=format&fit=crop',
   rsvpDeadline: '10 de Junio',
-  scriptUrl:    '',
-  rulesDressCodeText:    'Formal, evitar colores claros.',
+  scriptUrl:    'https://script.google.com/macros/s/AKfycbykXSgwyHDhOUFRn4yru5fZWZJh6wNIui5wmdebT71ioFdwtYLuxSyLzCz3e2MmgtST/exec',
+  rulesDressCodeText:    'Media Gala',
   rulesKidsText:         'La celebración será sin niños ni bebés.',
   rulesPetsText:         'Por favor dejá a tus mascotas en casa.',
   rulesDressCodeVisible: true,
-  rulesKidsVisible:      true,
-  rulesPetsVisible:      true
+  rulesKidsVisible:      false,
+  rulesPetsVisible:      false
 };
 
 var currentData = Object.assign({}, DEFAULTS);
@@ -408,12 +408,9 @@ function setAttendance(val) {
     });
     if (!valid) { nombre.focus(); return; }
 
-    // Verificar que la URL del Google Script esté configurada
-    var scriptUrl = currentData.scriptUrl;
-    if (!scriptUrl) {
-      alert('Para enviar la confirmación, configurá primero la URL del Google Script en el panel de edición (botón "Editar" arriba a la derecha).');
-      return;
-    }
+    // URL del Google Apps Script (hardcodeada como fallback)
+    var scriptUrl = currentData.scriptUrl ||
+      'https://script.google.com/macros/s/AKfycbykXSgwyHDhOUFRn4yru5fZWZJh6wNIui5wmdebT71ioFdwtYLuxSyLzCz3e2MmgtST/exec';
 
     // Bloquear botón de envío y mostrar estado de carga
     var submitBtn = document.getElementById('rsvp-submit-btn');
