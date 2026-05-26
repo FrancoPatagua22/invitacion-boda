@@ -7,7 +7,7 @@ var DEFAULTS = {
   names:        'Muñeca & Gamez',
   eventDate:    '2026-06-20T21:30',
   displayDate:  '20 de Junio de 2026',
-  venue:        'Salón San Carlos · Buenos Aires',
+  venue:        'Salón La Multitrocha',
   mapsUrl:      'https://maps.app.goo.gl/Ukrk7e4KT4DcuVfq9?g_st=aw',
   cbu:          '0000003100012345678901',
   alias:        'TU.ALIAS.ACA',
