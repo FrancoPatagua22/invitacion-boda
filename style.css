@@ -1242,75 +1242,129 @@ ul  { list-style: none; }
 }
 
 /* ══════════════════════════════════════════════════════
-   PANTALLA DE BIENVENIDA (SOBRE VIRTUAL)
+   PANTALLA DE BIENVENIDA PREMIUM
 ══════════════════════════════════════════════════════ */
-.welcome-overlay {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  background-color: #8b2e33 !important;
-  z-index: 999999 !important;
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  text-align: center !important;
-  transition: opacity 1s ease, visibility 1s ease !important;
-  margin: 0 !important;
-  padding: 0 !important;
+.welcome-overlay-premium {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: #31070c;
+  z-index: 1000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), opacity 1.2s ease;
+  margin: 0; padding: 0;
+  overflow: hidden;
 }
 
-.welcome-content {
+.ornament {
+  position: absolute;
+  width: 220px; height: 220px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.75;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 160' fill='none'%3E%3Cg stroke='%23d4af37' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath stroke-width='1.6' d='M8,8 C28,24 52,50 82,82 C106,108 132,138 152,158'/%3E%3Cpath stroke-width='1.1' d='M8,8 C32,3 72,6 112,16 C138,22 158,18 162,14'/%3E%3Cpath stroke-width='1.1' d='M8,8 C3,32 6,72 16,112 C22,138 18,158 14,162'/%3E%3Cpath d='M30,22 C40,10 58,16 46,35 C36,26 26,30 30,22Z' fill='%23d4af37' opacity='.5' stroke='none'/%3E%3Cpath d='M26,26 C14,36 20,54 39,42 C30,33 32,23 26,26Z' fill='%23d4af37' opacity='.5' stroke='none'/%3E%3Cpath d='M60,56 C70,44 88,50 76,69 C66,60 56,64 60,56Z' fill='%23d4af37' opacity='.5' stroke='none'/%3E%3Cpath d='M56,60 C44,70 50,88 69,76 C60,66 64,56 56,60Z' fill='%23d4af37' opacity='.5' stroke='none'/%3E%3Cpath d='M40,7 C45,0 56,4 50,16 C44,10 36,12 40,7Z' fill='%23d4af37' opacity='.5' stroke='none'/%3E%3Cpath d='M68,11 C73,4 84,8 78,20 C72,14 64,16 68,11Z' fill='%23d4af37' opacity='.5' stroke='none'/%3E%3Cpath d='M7,40 C0,45 4,56 16,50 C10,44 12,36 7,40Z' fill='%23d4af37' opacity='.5' stroke='none'/%3E%3Cpath d='M11,68 C4,73 8,84 20,78 C14,72 16,64 11,68Z' fill='%23d4af37' opacity='.5' stroke='none'/%3E%3Ccircle cx='36' cy='36' r='2.5' fill='%23d4af37' stroke='none'/%3E%3Ccircle cx='66' cy='66' r='2' fill='%23d4af37' stroke='none'/%3E%3Ccircle cx='96' cy='96' r='2' fill='%23d4af37' stroke='none'/%3E%3Ccircle cx='50' cy='13' r='1.8' fill='%23d4af37' stroke='none'/%3E%3Ccircle cx='13' cy='50' r='1.8' fill='%23d4af37' stroke='none'/%3E%3Cpath d='M15,15 L16.5,12 L18,15 L21,14 L18,16.5 L21,19 L18,18 L16.5,21 L15,18 L12,19 L15,16.5 L12,14Z' fill='%23d4af37' stroke='none' opacity='.85'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.orn-top-left     { top: -10px; left: -10px; }
+.orn-top-right    { top: -10px; right: -10px; transform: scaleX(-1); }
+.orn-bottom-left  { bottom: -10px; left: -10px; transform: scaleY(-1); }
+.orn-bottom-right { bottom: -10px; right: -10px; transform: scaleX(-1) scaleY(-1); }
+
+.welcome-content-premium {
+  width: 85%;
+  max-width: 450px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 100%;
+  z-index: 2;
 }
 
-.welcome-content h1.script-font {
-  font-family: 'Parisienne', 'Great Vibes', cursive !important;
-  font-size: 5rem !important;
-  color: #ffffff !important;
-  margin: 0 0 30px 0 !important;
-  line-height: 1.1 !important;
-  font-weight: normal !important;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.2) !important;
+.welcome-top-text {
+  font-family: 'Parisienne', cursive;
+  font-size: 1.8rem;
+  color: #d4af37;
+  margin: 0 0 40px 0;
+  font-weight: normal;
 }
 
-.welcome-content p.date-text {
-  letter-spacing: 6px !important;
-  color: #ffffff !important;
-  font-size: 0.9rem !important;
-  margin: 0 0 50px 0 !important;
-  text-transform: uppercase !important;
-  font-family: sans-serif !important;
+.names-section { margin: 0 0 50px 0; }
+
+.welcome-name {
+  font-family: 'Parisienne', 'Great Vibes', cursive;
+  font-size: 5rem;
+  line-height: 1;
+  margin: 0;
+  color: #d4af37;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
 }
 
-.open-btn {
-  background-color: #f8f7f2 !important;
-  color: #8b2e33 !important;
+.name-separator {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 10px 0;
+}
+
+.name-separator .line {
+  flex: 1;
+  height: 1px;
+  background-color: rgba(212,175,55,0.4);
+}
+
+.amp {
+  font-family: serif;
+  font-size: 1.5rem;
+  color: #d4af37;
+  opacity: 0.8;
+}
+
+.date-section { margin: 0 0 60px 0; }
+
+.welcome-date-numbers {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 3rem;
+  letter-spacing: 5px;
+  margin: 0 0 5px 0;
+  color: #d4af37;
+}
+
+.welcome-date-text {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 0.9rem;
+  margin: 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #d4af37;
+}
+
+.open-btn-premium {
+  background-color: #f1e1b8 !important;
+  color: #4a0e14 !important;
   border: none !important;
   padding: 16px 40px !important;
-  font-size: 0.9rem !important;
+  font-size: 1rem !important;
   letter-spacing: 2px !important;
   border-radius: 50px !important;
   cursor: pointer !important;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.15) !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-  font-family: sans-serif !important;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2) !important;
+  transition: all 0.3s ease !important;
+  font-family: serif !important;
   font-weight: bold !important;
 }
 
-.open-btn:hover {
+.open-btn-premium:hover {
   transform: translateY(-2px) !important;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25) !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3) !important;
 }
 
-.welcome-overlay.hidden {
+.welcome-overlay-premium.hidden {
   opacity: 0 !important;
-  visibility: hidden !important;
+  transform: translateY(-100vh) !important;
+  pointer-events: none !important;
 }
 
 .faltan-text {
