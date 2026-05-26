@@ -610,7 +610,9 @@ document.addEventListener('keydown', function(e) {
   var openBtn = document.getElementById('open-invitation');
   var overlay = document.getElementById('welcome-overlay');
   if (openBtn && overlay) {
+    document.body.style.overflow = 'hidden';
     openBtn.addEventListener('click', function() {
+      document.body.style.overflow = '';
       audio.play().then(showPause).catch(showPlay);
       overlay.classList.add('hidden');
     });
