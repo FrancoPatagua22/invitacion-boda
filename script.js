@@ -608,9 +608,19 @@ document.addEventListener('keydown', function(e) {
   // Intento de autoplay al cargar
   startMusic();
 
-  // Fallback: arrancar con el primer gesto del usuario si el autoplay fue bloqueado
-  document.body.addEventListener('click',      startMusic, { once: true });
-  document.body.addEventListener('touchstart', startMusic, { once: true });
+  // Fallback: arrancar con el primer gesto (click, scroll, touch o movimiento)
+  var unlockEvents = ['click', 'touchstart', 'touchmove', 'scroll'];
+  function unlockAudio() {
+    if (audio.paused) {
+      audio.play().then(showPause).catch(showPlay);
+    }
+    unlockEvents.forEach(function(ev) {
+      window.removeEventListener(ev, unlockAudio);
+    });
+  }
+  unlockEvents.forEach(function(ev) {
+    window.addEventListener(ev, unlockAudio, { passive: true });
+  });
 
   // Control manual: pausar / reanudar
   btn.addEventListener('click', function(e) {
