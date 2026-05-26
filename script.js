@@ -605,22 +605,16 @@ document.addEventListener('keydown', function(e) {
     });
   }
 
-  // Intento de autoplay al cargar
-  startMusic();
-
-  // Fallback: arrancar con el primer gesto (click, scroll, touch o movimiento)
-  var unlockEvents = ['click', 'touchstart', 'touchmove', 'scroll'];
-  function unlockAudio() {
-    if (audio.paused) {
+  // Pantalla de bienvenida: el click en "ABRIR INVITACIÓN" garantiza
+  // una interacción real, destrabando el autoplay en todos los navegadores
+  var openBtn = document.getElementById('open-invitation');
+  var overlay = document.getElementById('welcome-overlay');
+  if (openBtn && overlay) {
+    openBtn.addEventListener('click', function() {
       audio.play().then(showPause).catch(showPlay);
-    }
-    unlockEvents.forEach(function(ev) {
-      window.removeEventListener(ev, unlockAudio);
+      overlay.classList.add('hidden');
     });
   }
-  unlockEvents.forEach(function(ev) {
-    window.addEventListener(ev, unlockAudio, { passive: true });
-  });
 
   // Control manual: pausar / reanudar
   btn.addEventListener('click', function(e) {
