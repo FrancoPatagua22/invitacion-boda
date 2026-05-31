@@ -356,6 +356,44 @@ function copyText(elementId, btn) {
   }
 }
 
+function copyData(elementId, btn) {
+  var el = document.getElementById(elementId);
+  if (!el) return;
+  var text = el.textContent.trim();
+  var original = btn.textContent;
+
+  function onCopied() {
+    btn.textContent = '¡Copiado!';
+    btn.classList.add('copied');
+    setTimeout(function() {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1800);
+  }
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(onCopied).catch(function() {
+      fallbackCopyData(text, onCopied);
+    });
+  } else {
+    fallbackCopyData(text, onCopied);
+  }
+}
+
+function fallbackCopyData(text, onCopied) {
+  try {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    onCopied();
+  } catch(e) {}
+}
+
 function fallbackCopy(el, onSuccess) {
   try {
     var range = document.createRange();

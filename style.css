@@ -1381,3 +1381,98 @@ span.hero_scroll-arrow {
     30% { opacity: 0; }   /* Desaparece suavemente */
     100% { opacity: 0; }  /* Espera su turno de nuevo */
 }
+
+/* ══════════════════════════════════════════════════════
+   SECCIÓN REGALOS PREMIUM
+══════════════════════════════════════════════════════ */
+.regalos-section {
+  padding: 80px 20px;
+  background-color: #f8f7f2;
+  text-align: center;
+}
+
+.regalos-container {
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.regalos-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.regalos-section h2 {
+  font-family: 'Playfair Display', serif;
+  color: #4a0913;
+  font-size: 2.2rem;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+}
+
+.regalos-intro {
+  color: #6b6b6b;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.bank-card {
+  background-color: #ffffff;
+  border: 1px solid rgba(220,181,121,0.45);
+  border-radius: 15px;
+  padding: 30px 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  text-align: left;
+}
+
+.bank-card > p {
+  margin: 0 0 16px 0;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.data-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.data-row p {
+  margin: 0;
+  color: #333;
+  font-size: 0.95rem;
+  flex: 1;
+  word-break: break-all;
+}
+
+.copy-btn {
+  flex-shrink: 0;
+  background-color: #4a0913;
+  color: #f6efe1;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+  white-space: nowrap;
+}
+
+.copy-btn:hover {
+  background-color: #6a1a24;
+  transform: translateY(-1px);
+}
+
+.copy-btn.copied {
+  background-color: #2e7d32;
+}
+
+.titular-text {
+  margin: 20px 0 0 0 !important;
+  font-size: 0.9rem;
+  color: #555;
+}
