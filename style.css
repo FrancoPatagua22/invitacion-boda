@@ -1438,6 +1438,9 @@ span.hero_scroll-arrow {
 .icon-copy-btn {
   background: transparent;
   border: none;
+  outline: none;
+  -webkit-appearance: none;
+  box-shadow: none;
   color: #4a0913;
   cursor: pointer;
   padding: 4px;
