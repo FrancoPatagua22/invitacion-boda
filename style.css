@@ -1504,27 +1504,18 @@ span.hero_scroll-arrow {
 
 /* Regalos: textos actualizados */
 .regalos-text-updated {
-  margin-bottom: 8px;
+  text-align: center !important;
+  max-width: 600px !important;
+  margin: 0 auto 30px auto !important;
 }
 
-.regalos-main-text {
-  font-weight: bold !important;
-  font-size: 1.1rem !important;
-  color: #333 !important;
-}
-
+.regalos-main-text,
 .regalos-sub-text {
-  font-weight: bold !important;
-  margin-top: 15px !important;
-  color: #444 !important;
-}
-
-.regalos-list {
-  text-align: left !important;
-  display: inline-block !important;
-  margin: 10px auto 20px auto !important;
+  font-weight: normal !important;
+  font-size: 1rem !important;
   color: #555 !important;
-  line-height: 1.7 !important;
+  line-height: 1.6 !important;
+  margin-bottom: 5px !important;
 }
 
 /* RSVP: textos actualizados */
