@@ -1383,96 +1383,92 @@ span.hero_scroll-arrow {
 }
 
 /* ══════════════════════════════════════════════════════
-   SECCIÓN REGALOS PREMIUM
+   TARJETA BANCARIA PREMIUM (dentro de Un detalle especial)
 ══════════════════════════════════════════════════════ */
-.regalos-section {
-  padding: 80px 20px;
-  background-color: #f8f7f2;
+.bank-card-premium {
+  background-color: #ffffff;
+  border: 1px solid rgba(74,9,19,0.1);
+  border-radius: 16px;
+  padding: 30px 25px;
+  max-width: 400px;
+  width: 90%;
+  margin: 35px auto 0 auto;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.05);
   text-align: center;
 }
 
-.regalos-container {
-  max-width: 450px;
-  margin: 0 auto;
-}
-
-.regalos-icon {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-}
-
-.regalos-section h2 {
-  font-family: 'Playfair Display', serif;
+.bank-title {
   color: #4a0913;
-  font-size: 2.2rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  margin-top: 0;
   margin-bottom: 15px;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
+  font-weight: 600;
 }
 
-.regalos-intro {
-  color: #6b6b6b;
-  font-size: 0.95rem;
-  line-height: 1.7;
-  margin-bottom: 30px;
-}
-
-.bank-card {
-  background-color: #ffffff;
-  border: 1px solid rgba(220,181,121,0.45);
-  border-radius: 15px;
-  padding: 30px 24px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-  text-align: left;
-}
-
-.bank-card > p {
-  margin: 0 0 16px 0;
-  color: #333;
+.bank-name-text {
+  color: #555;
+  margin-bottom: 25px;
   font-size: 0.95rem;
 }
 
 .data-row {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
+  background-color: #fbfaf8;
+  padding: 12px 15px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(0,0,0,0.04);
   gap: 12px;
-  margin-bottom: 14px;
 }
 
-.data-row p {
-  margin: 0;
-  color: #333;
+.data-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: #888;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.mono-text {
+  font-family: 'Courier New', monospace;
   font-size: 0.95rem;
-  flex: 1;
+  color: #4a0913;
+  font-weight: 700;
+  margin-top: 3px;
+  letter-spacing: 0;
+  text-transform: none;
   word-break: break-all;
 }
 
 .copy-btn {
   flex-shrink: 0;
   background-color: #4a0913;
-  color: #f6efe1;
+  color: #ffffff;
   border: none;
-  padding: 8px 16px;
+  padding: 10px 18px;
+  font-size: 0.72rem;
   border-radius: 20px;
   cursor: pointer;
-  font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  transition: background-color 0.25s ease, transform 0.2s ease;
+  letter-spacing: 1px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
   white-space: nowrap;
 }
 
-.copy-btn:hover {
-  background-color: #6a1a24;
-  transform: translateY(-1px);
-}
+.copy-btn:hover { transform: scale(0.95); }
 
-.copy-btn.copied {
-  background-color: #2e7d32;
-}
+.copy-btn.copied { background-color: #27ae60; }
 
 .titular-text {
-  margin: 20px 0 0 0 !important;
-  font-size: 0.9rem;
-  color: #555;
+  margin: 20px 0 0 0;
+  font-size: 0.85rem;
+  color: #999;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  padding-top: 18px;
 }

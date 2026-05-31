@@ -198,29 +198,25 @@
       <p class="gifts__text">
         Tu presencia es lo que más valoramos. Si deseás obsequiarnos un presente, contaremos con un espacio especial en la recepción para quienes deseen hacerlo.
       </p>
-    </div>
-  </section>
 
-  <!-- ═══════════════════════════════════════════
-       REGALOS / COLECTA
-  ═══════════════════════════════════════════ -->
-  <section id="regalos" class="regalos-section">
-    <div class="regalos-container">
-      <div class="regalos-icon">🎁</div>
-      <h2>Regalos</h2>
-      <p class="regalos-intro">Si deseas colaborar con nuestro viaje de bodas o nuestro futuro hogar, podés hacerlo mediante transferencia bancaria:</p>
-
-      <div class="bank-card">
-        <p><strong>Banco:</strong> <span id="bank-name">Banco Nación</span></p>
+      <div class="bank-card-premium">
+        <h3 class="bank-title">Datos Bancarios</h3>
+        <p class="bank-name-text"><strong>Banco:</strong> <span id="bank-name">Banco Nación</span></p>
 
         <div class="data-row">
-          <p><strong>CBU:</strong> <span id="cbu-value">0000003100012345678901</span></p>
-          <button class="copy-btn" onclick="copyData('cbu-value', this)">Copiar CBU</button>
+          <div class="data-text">
+            <span>CBU / CVU:</span>
+            <span id="cbu-value" class="mono-text">0000003100012345678901</span>
+          </div>
+          <button class="copy-btn" onclick="copyData('cbu-value', this)">COPIAR</button>
         </div>
 
         <div class="data-row">
-          <p><strong>Alias:</strong> <span id="alias-value">TU.ALIAS.ACA</span></p>
-          <button class="copy-btn" onclick="copyData('alias-value', this)">Copiar Alias</button>
+          <div class="data-text">
+            <span>Alias:</span>
+            <span id="alias-value" class="mono-text">TU.ALIAS.ACA</span>
+          </div>
+          <button class="copy-btn" onclick="copyData('alias-value', this)">COPIAR</button>
         </div>
 
         <p class="titular-text"><strong>Titular:</strong> Muñeca &amp; Gamez</p>
