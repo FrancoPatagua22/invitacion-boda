@@ -356,6 +356,31 @@ function copyText(elementId, btn) {
   }
 }
 
+function copyDataIcon(elementId, button) {
+  var el = document.getElementById(elementId);
+  if (!el) return;
+  var text = el.innerText.trim();
+  var originalSvg = button.innerHTML;
+  var checkSvg = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+
+  function onCopied() {
+    button.innerHTML = checkSvg;
+    button.classList.add('success');
+    setTimeout(function() {
+      button.innerHTML = originalSvg;
+      button.classList.remove('success');
+    }, 2000);
+  }
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(onCopied).catch(function() {
+      fallbackCopyData(text, onCopied);
+    });
+  } else {
+    fallbackCopyData(text, onCopied);
+  }
+}
+
 function copyData(elementId, btn) {
   var el = document.getElementById(elementId);
   if (!el) return;

@@ -199,24 +199,28 @@
         Tu presencia es lo que más valoramos. Si deseás obsequiarnos un presente, contaremos con un espacio especial en la recepción para quienes deseen hacerlo.
       </p>
 
-      <div class="bank-card-premium">
+      <div class="bank-data-container">
         <h3 class="bank-title">Datos Bancarios</h3>
-        <p class="bank-name-text"><strong>Banco:</strong> <span id="bank-name">Banco Nación</span></p>
+        <p class="bank-name-text"><strong>Banco:</strong> Banco Nación</p>
 
-        <div class="data-row">
-          <div class="data-text">
-            <span>CBU / CVU:</span>
+        <div class="data-item">
+          <span class="data-label">CBU / CVU:</span>
+          <div class="copy-wrapper">
             <span id="cbu-value" class="mono-text">0000003100012345678901</span>
+            <button class="icon-copy-btn" onclick="copyDataIcon('cbu-value', this)" title="Copiar CBU">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
           </div>
-          <button class="copy-btn" onclick="copyData('cbu-value', this)">COPIAR</button>
         </div>
 
-        <div class="data-row">
-          <div class="data-text">
-            <span>Alias:</span>
+        <div class="data-item">
+          <span class="data-label">Alias:</span>
+          <div class="copy-wrapper">
             <span id="alias-value" class="mono-text">TU.ALIAS.ACA</span>
+            <button class="icon-copy-btn" onclick="copyDataIcon('alias-value', this)" title="Copiar Alias">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            </button>
           </div>
-          <button class="copy-btn" onclick="copyData('alias-value', this)">COPIAR</button>
         </div>
 
         <p class="titular-text"><strong>Titular:</strong> Muñeca &amp; Gamez</p>
