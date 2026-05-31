@@ -1460,3 +1460,89 @@ span.hero_scroll-arrow {
   font-size: 0.9rem;
   color: #555;
 }
+
+/* ══════════════════════════════════════════════════════
+   AJUSTES DE CONTENIDO — PORTADA, SALÓN, REGALOS, RSVP
+══════════════════════════════════════════════════════ */
+
+/* Portada: subtítulo más grande */
+.invite-subtitle {
+  font-size: 1.3rem !important;
+}
+
+/* Portada: flecha de scroll grande y dorada */
+.scroll-arrow-highlight {
+  font-size: 3rem !important;
+  color: #f1c40f !important;
+  filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.5)) !important;
+  animation: bounceArrow 2s ease-in-out infinite !important;
+}
+
+@keyframes bounceArrow {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(14px); }
+}
+
+/* Salón: nombre en negrita y grande */
+.salon-name-bold {
+  font-weight: 900 !important;
+  font-size: 1.8rem !important;
+  color: #4a0913 !important;
+  font-family: var(--font-title) !important;
+  text-align: center !important;
+  margin-bottom: 6px !important;
+}
+
+.salon-address {
+  font-size: 0.88rem !important;
+  color: #555 !important;
+  margin-top: 0 !important;
+  font-style: italic !important;
+  text-align: center !important;
+  margin-bottom: 32px !important;
+}
+
+/* Regalos: textos actualizados */
+.regalos-text-updated {
+  margin-bottom: 8px;
+}
+
+.regalos-main-text {
+  font-weight: bold !important;
+  font-size: 1.1rem !important;
+  color: #333 !important;
+}
+
+.regalos-sub-text {
+  font-weight: bold !important;
+  margin-top: 15px !important;
+  color: #444 !important;
+}
+
+.regalos-list {
+  text-align: left !important;
+  display: inline-block !important;
+  margin: 10px auto 20px auto !important;
+  color: #555 !important;
+  line-height: 1.7 !important;
+}
+
+/* RSVP: textos actualizados */
+.rsvp-updated-texts {
+  margin-bottom: 32px;
+}
+
+.rsvp-date-text {
+  font-weight: 900 !important;
+  font-size: 1.2rem !important;
+  color: #4a0913 !important;
+  margin-bottom: 15px !important;
+  line-height: 1.4 !important;
+}
+
+.rsvp-info-text {
+  font-weight: bold !important;
+  font-size: 1rem !important;
+  color: #333 !important;
+  line-height: 1.5 !important;
+}

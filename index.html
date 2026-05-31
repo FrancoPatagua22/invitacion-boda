@@ -44,10 +44,10 @@
         <span class="hero__divider-icon">♡</span>
         <span class="hero__divider-line"></span>
       </div>
-      <p class="hero__subtitle">¡TE INVITAMOS A NUESTRO CASAMIENTO!</p>
+      <p class="hero__subtitle invite-subtitle">¡TE INVITAMOS A NUESTRO CASAMIENTO!</p>
     </div>
     <div class="hero__scroll-hint">
-      <span class="hero__scroll-arrow">&#8595;</span>
+      <span class="hero__scroll-arrow scroll-arrow-highlight">&#8595;</span>
     </div>
   </section>
 
@@ -98,7 +98,8 @@
     <div class="container">
       <p class="section-label">— el gran día —</p>
       <h2 class="section-title">Lugar &amp; Horario</h2>
-      <p class="schedule__venue" id="schedule-venue">Salón La Multitrocha</p>
+      <h3 class="schedule__venue salon-name-bold" id="schedule-venue">Salon Multitrocha</h3>
+      <p class="salon-address">B° Coronel Arias, Vilcapugio N° 1907, San Salvador de Jujuy, Jujuy</p>
 
       <ul class="schedule__list">
         <li class="schedule__item">
@@ -195,9 +196,14 @@
         </svg>
       </div>
       <h2 class="section-title">Un detalle especial</h2>
-      <p class="gifts__text">
-        Tu presencia es lo que más valoramos. Si deseás obsequiarnos un presente, contaremos con un espacio especial en la recepción para quienes deseen hacerlo.
-      </p>
+      <div class="regalos-text-updated">
+        <p class="regalos-main-text">Tu presencia es lo que más valoramos.</p>
+        <p class="regalos-sub-text">Si deseas obsequiarnos algo:</p>
+        <ul class="regalos-list">
+          <li>Contaremos con un lugar especial en recepción del salon.</li>
+          <li>CBU O ALIAS:</li>
+        </ul>
+      </div>
 
       <div class="bank-data-container">
         <h3 class="bank-title">Datos Bancarios</h3>
@@ -242,8 +248,10 @@
     <div class="container">
       <p class="section-label">— es tu turno —</p>
       <h2 class="section-title">Confirmación de asistencia</h2>
-      <p class="rsvp__text">Para que no falte comida ni copas te pedimos confirmar tu asistencia antes del día <strong id="rsvp-deadline">10 de Junio</strong>. Sin confirmación, no podemos contar con tu lugar en la mesa, ni en la fiesta.</p>
-      <p class="rsvp__text rsvp__text--secondary">Por normas de seguridad del salón de eventos, es necesario que carguen los datos de cada uno de los asistentes para conformar lista de control de asistencia.</p>
+      <div class="rsvp-updated-texts">
+        <p class="rsvp-date-text">Te solicitamos confirmar tu asistencia hasta el <span id="rsvp-deadline">10 de Junio</span> de 2026</p>
+        <p class="rsvp-info-text">De esta forma podrás contar con lugar asignado en una mesa y colaboras con la organización general de nuestro evento (Para que todo esté correctamente administrado y acomodado).</p>
+      </div>
       <form class="rsvp__form" id="rsvp-form" novalidate>
 
         <!-- Campo oculto: valor por defecto "Si", cambia con los botones de abajo -->
