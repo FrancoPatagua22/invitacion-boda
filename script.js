@@ -4,17 +4,17 @@
    DATOS POR DEFECTO
 ══════════════════════════════════════════════════════ */
 var DEFAULTS = {
-  names:        'Muñeca & Gamez',
-  eventDate:    '2026-06-20T21:30',
-  displayDate:  '20 de Junio de 2026',
+  names:        'Salvador David Gamez',
+  eventDate:    '2026-10-16T22:00',
+  displayDate:  '16 de Octubre de 2026',
   venue:        'Salón La Multitrocha',
   mapsUrl:      'https://maps.app.goo.gl/Ukrk7e4KT4DcuVfq9?g_st=aw',
   cbu:          '0000003100012345678901',
   alias:        'TU.ALIAS.ACA',
   heroImage:    'https://images.unsplash.com/photo-1519741497674-611481863552?w=1400&q=80&auto=format&fit=crop',
-  rsvpDeadline: '10 de Junio',
+  rsvpDeadline: '5 de Octubre',
   scriptUrl:    'https://script.google.com/macros/s/AKfycbykXSgwyHDhOUFRn4yru5fZWZJh6wNIui5wmdebT71ioFdwtYLuxSyLzCz3e2MmgtST/exec',
-  rulesDressCodeText:    'Media Gala',
+  rulesDressCodeText:    'Semiformal',
   rulesKidsText:         'La celebración será sin niños ni bebés.',
   rulesPetsText:         'Por favor dejá a tus mascotas en casa.',
   rulesDressCodeVisible: true,
@@ -452,7 +452,7 @@ function setAttendance(val) {
   if (!form) return;
 
   // Limpiar errores de validación al escribir
-  ['first-name', 'last-name'].forEach(function(id) {
+  ['nombreCompleto'].forEach(function(id) {
     var input = document.getElementById(id);
     if (input) input.addEventListener('input', function() { input.classList.remove('error'); });
   });
@@ -460,16 +460,13 @@ function setAttendance(val) {
   form.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    // Validar que nombre y apellido estén completos
-    var nombre   = document.getElementById('first-name');
-    var apellido = document.getElementById('last-name');
-    var valid    = true;
+    // Validar que el nombre completo esté completo
+    var nombreCompleto = document.getElementById('nombreCompleto');
+    var valid          = true;
 
-    [nombre, apellido].forEach(function(input) {
-      input.classList.remove('error');
-      if (!input.value.trim()) { input.classList.add('error'); valid = false; }
-    });
-    if (!valid) { nombre.focus(); return; }
+    nombreCompleto.classList.remove('error');
+    if (!nombreCompleto.value.trim()) { nombreCompleto.classList.add('error'); valid = false; }
+    if (!valid) { nombreCompleto.focus(); return; }
 
     // URL del Google Apps Script (hardcodeada como fallback)
     var scriptUrl = currentData.scriptUrl ||
@@ -490,31 +487,27 @@ function setAttendance(val) {
     var guests = [];
     var guestRows = document.querySelectorAll('#guests-container .guest-row');
     guestRows.forEach(function(row, idx) {
-      var n, a;
+      var n;
       if (idx === 0) {
-        n = nombre.value.trim();
-        a = apellido.value.trim();
+        n = nombreCompleto.value.trim();
       } else {
-        var ni = row.querySelector('.guest-nombre');
-        var ai = row.querySelector('.guest-apellido');
+        var ni = row.querySelector('.guest-nombre-completo');
         n = ni ? ni.value.trim() : '';
-        a = ai ? ai.value.trim() : '';
       }
-      if (n || a) guests.push({ nombre: n, apellido: a });
+      if (n) guests.push({ nombre: n });
     });
 
     // Un fetch por invitado → una fila separada en Google Sheets
     var promises = guests.map(function(guest) {
       var fd = new FormData();
       fd.append('nombre',     guest.nombre);
-      fd.append('apellido',   guest.apellido);
       fd.append('asistencia', asistencia);
       return fetch(scriptUrl, { method: 'POST', mode: 'no-cors', body: fd });
     });
 
     Promise.all(promises)
     .then(function() {
-      var primerNombre  = guests.length ? guests[0].nombre : nombre.value.trim();
+      var primerNombre  = guests.length ? guests[0].nombre : nombreCompleto.value.trim();
       var cantidadTexto = guests.length > 1 ? ' de ' + guests.length + ' personas' : '';
 
       // Limpiar el formulario y eliminar filas adicionales para evitar reenvíos
@@ -589,14 +582,10 @@ function setAttendance(val) {
     var row = document.createElement('div');
     row.className = 'guest-row';
     row.innerHTML =
-      '<div class="rsvp__fields">' +
+      '<div class="rsvp__fields rsvp__fields--single">' +
         '<div class="form-group">' +
-          '<label class="form-label">Nombre</label>' +
-          '<input class="form-input guest-nombre" type="text" placeholder="Ej: Juan" />' +
-        '</div>' +
-        '<div class="form-group">' +
-          '<label class="form-label">Apellido</label>' +
-          '<input class="form-input guest-apellido" type="text" placeholder="Ej: González" />' +
+          '<label class="form-label">Apellido y Nombre</label>' +
+          '<input class="form-input guest-nombre-completo" type="text" placeholder="Ej: González María" />' +
         '</div>' +
       '</div>' +
       '<button type="button" class="guest-row__remove" aria-label="Eliminar integrante">' +
@@ -608,7 +597,7 @@ function setAttendance(val) {
     });
 
     container.appendChild(row);
-    row.querySelector('.guest-nombre').focus();
+    row.querySelector('.guest-nombre-completo').focus();
   });
 })();
 
