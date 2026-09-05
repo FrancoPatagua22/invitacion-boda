@@ -889,51 +889,6 @@ ul  { list-style: none; }
 /* ══════════════════════════════════════════════════════
    5. RSVP
 ══════════════════════════════════════════════════════ */
-/* ── Galería de transición sobre el RSVP ── */
-.rsvp-gallery {
-  position: relative;
-  display: block;
-  max-width: 800px;
-  width: 90%;
-  height: 400px;
-  margin: 0 auto 50px auto;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-  border: 2px solid #f8f7f2;
-  background-color: #f8f7f2;
-}
-
-.gallery-item {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  opacity: 0;
-  animation: fadeGalleryPro 25s linear infinite;
-}
-
-.gallery-item:nth-child(1) { animation-delay:   0s; }
-.gallery-item:nth-child(2) { animation-delay: -20s; }
-.gallery-item:nth-child(3) { animation-delay: -15s; }
-.gallery-item:nth-child(4) { animation-delay: -10s; }
-.gallery-item:nth-child(5) { animation-delay:  -5s; }
-
-@keyframes fadeGalleryPro {
-  0%   { opacity: 1; }
-  15%  { opacity: 1; }
-  25%  { opacity: 0; }
-  90%  { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-@media (max-width: 600px) {
-  .rsvp-gallery { height: 240px; margin-bottom: 36px; width: 92%; }
-}
-
 .rsvp {
   padding: 0 0 100px;
   background-color: var(--color-white);
@@ -1373,34 +1328,6 @@ span.hero_scroll-arrow {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(15px); }
 }
-/* FORZAR ANIMACIÓN DE GALERÍA RSVP */
-.rsvp-gallery {
-    background-color: #f8f7f2 !important; /* Fondo color crema por si hay micro-cargas */
-}
-
-.gallery-item {
-    position: absolute !important;
-    top: 0; left: 0; width: 100%; height: 100%;
-    opacity: 0; /* Arrancan ocultas */
-    animation: crossfadePerfecto 25s infinite ease-in-out !important;
-}
-
-/* Sincronización exacta escalonada cada 5 segundos */
-.gallery-item:nth-child(1) { animation-delay: 0s !important; }
-.gallery-item:nth-child(2) { animation-delay: 5s !important; }
-.gallery-item:nth-child(3) { animation-delay: 10s !important; }
-.gallery-item:nth-child(4) { animation-delay: 15s !important; }
-.gallery-item:nth-child(5) { animation-delay: 20s !important; }
-
-/* La matemática del fundido suave */
-@keyframes crossfadePerfecto {
-    0% { opacity: 0; }
-    10% { opacity: 1; }   /* Aparece suavemente */
-    20% { opacity: 1; }   /* Se mantiene visible */
-    30% { opacity: 0; }   /* Desaparece suavemente */
-    100% { opacity: 0; }  /* Espera su turno de nuevo */
-}
-
 /* ══════════════════════════════════════════════════════
    DATOS BANCARIOS MINIMALISTAS CON ICONO
 ══════════════════════════════════════════════════════ */
@@ -1555,4 +1482,22 @@ span.hero_scroll-arrow {
   font-size: 1rem !important;
   color: #333 !important;
   line-height: 1.5 !important;
+}
+
+/* ══════════════════════════════════════════════════════
+   GALERÍA ESTÁTICA
+══════════════════════════════════════════════════════ */
+.single-gallery-container {
+    width: 100% !important;
+    max-width: 700px !important;
+    margin: 40px auto !important;
+    padding: 0 20px !important;
+    text-align: center !important;
+}
+.static-gallery-img {
+    width: 100% !important;
+    height: auto !important;
+    border-radius: 15px !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
+    border: 3px solid rgba(212, 175, 55, 0.2) !important; /* Borde sutil dorado */
 }

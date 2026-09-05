@@ -35,7 +35,7 @@ function applyData(data) {
   if (heroNames)   heroNames.textContent   = data.names;
   if (footerNames) footerNames.textContent = data.names;
   if (bankNote)    bankNote.textContent    = 'Banco: Banco Nación · Titulares: ' + data.names;
-  document.title = data.names + ' — Invitación de Casamiento';
+  document.title = data.names + ' — Invitación de Cumpleaños';
 
   // Fecha preheading (hero)
   var heroPreheading = document.getElementById('hero-preheading');
