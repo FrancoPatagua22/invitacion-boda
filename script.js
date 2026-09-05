@@ -692,6 +692,27 @@ document.addEventListener('keydown', function(e) {
 })();
 
 /* ══════════════════════════════════════════════════════
+   MÚSICA DE FONDO — SELECTOR DE ARCHIVO LOCAL (panel de edición)
+══════════════════════════════════════════════════════ */
+(function initMusicUpload() {
+  var uploadMusicInput = document.getElementById('upload-music');
+  if (uploadMusicInput) {
+    uploadMusicInput.addEventListener('change', function(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const musicEl = document.getElementById('bg-music');
+        if (musicEl) {
+          musicEl.src = URL.createObjectURL(file);
+          musicEl.load();
+          console.log("Música actualizada desde archivo local:", file.name);
+          alert("¡Música cargada con éxito! Se reproducirá al abrir la invitación.");
+        }
+      }
+    });
+  }
+})();
+
+/* ══════════════════════════════════════════════════════
    INICIALIZACIÓN — CARGAR DATOS AL ARRANCAR
 ══════════════════════════════════════════════════════ */
 loadFromStorage();
