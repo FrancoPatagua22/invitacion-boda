@@ -137,8 +137,10 @@ ul  { list-style: none; }
   position: fixed;
   top: 16px;
   right: 16px;
-  z-index: 900;
+  z-index: 9999999 !important;
   display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
   align-items: center;
   gap: 6px;
   background-color: var(--color-white);
