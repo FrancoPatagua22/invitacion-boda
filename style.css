@@ -133,43 +133,28 @@ ul  { list-style: none; }
 /* ══════════════════════════════════════════════════════
    EDIT BUTTON (fixed top-right)
 ══════════════════════════════════════════════════════ */
-.edit-btn {
-  position: fixed;
-  top: 16px;
-  right: 16px;
-  z-index: 9999999 !important;
+#btn-modo-editar {
   display: flex !important;
   visibility: visible !important;
   opacity: 1 !important;
+  z-index: 9999999 !important;
   align-items: center;
   gap: 6px;
-  background-color: var(--color-white);
-  color: var(--color-accent);
-  border: 1.5px solid var(--color-accent);
-  border-radius: var(--radius-pill);
-  padding: 8px 18px;
   font-family: var(--font-body);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  cursor: pointer;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
-  transition: all var(--transition);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  transition: transform var(--transition), box-shadow var(--transition), background-color var(--transition);
 }
 
-.edit-btn svg {
-  width: 15px;
-  height: 15px;
-  flex-shrink: 0;
-}
-
-.edit-btn:hover,
-.edit-btn:focus-visible {
-  background-color: var(--color-accent);
-  color: var(--color-white);
+#btn-modo-editar:hover,
+#btn-modo-editar:focus-visible {
+  background: var(--color-accent-h, #711f24) !important;
   transform: translateY(-1px);
-  box-shadow: 0 4px 18px rgba(139,46,51,0.35);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+}
+
+#btn-modo-editar:active {
+  transform: translateY(0);
 }
 
 /* ══════════════════════════════════════════════════════
@@ -1202,8 +1187,6 @@ ul  { list-style: none; }
 
   .countdown__separator { font-size: 2rem; }
 
-  .edit-btn span { display: none; }
-
   .rules__card {
     flex: 1 1 100%;
     max-width: 100%;
@@ -1305,7 +1288,7 @@ ul  { list-style: none; }
    PRINT
 ══════════════════════════════════════════════════════ */
 @media print {
-  .edit-btn, .edit-overlay, .edit-panel, .fab, .save-toast { display: none !important; }
+  #btn-modo-editar, .edit-overlay, .edit-panel, .fab, .save-toast { display: none !important; }
 }
 
 /* ══════════════════════════════════════════════════════

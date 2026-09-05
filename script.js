@@ -236,9 +236,18 @@ function closeEditPanel() {
   document.body.style.overflow = '';
 
   // Devolver foco al botón de editar
-  var editBtn = document.getElementById('edit-btn');
+  var editBtn = document.getElementById('btn-modo-editar');
   if (editBtn) editBtn.focus();
 }
+
+/* ══════════════════════════════════════════════════════
+   BOTÓN FLOTANTE DE EDICIÓN — CONECTAR CLICK
+══════════════════════════════════════════════════════ */
+(function initEditButton() {
+  var btn = document.getElementById('btn-modo-editar');
+  if (!btn) return;
+  btn.addEventListener('click', openEditPanel);
+})();
 
 function setInputVal(id, value) {
   var el = document.getElementById(id);

@@ -22,14 +22,6 @@
   </div>
 
   <!-- ═══════════════════════════════════════════
-       BOTÓN EDITAR (fixed, top-right)
-  ═══════════════════════════════════════════ -->
-  <button id="edit-btn" class="edit-btn" onclick="openEditPanel()" title="Editar invitación" aria-label="Editar invitación">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
-    <span>EDITAR</span>
-  </button>
-
-  <!-- ═══════════════════════════════════════════
        1. HERO SECTION
   ═══════════════════════════════════════════ -->
   <section class="hero" id="hero">
@@ -418,6 +410,13 @@
 
   <!-- TOAST DE CONFIRMACIÓN -->
   <div class="save-toast" id="save-toast" role="status" aria-live="polite">✓ Cambios guardados</div>
+
+  <!-- ═══════════════════════════════════════════
+       BOTÓN FLOTANTE DE EDICIÓN (fixed, top-right)
+  ═══════════════════════════════════════════ -->
+  <button id="btn-modo-editar" title="Editar Contenido" style="position: fixed; top: 15px; right: 15px; z-index: 9999999; background: #4a0913; color: #f1e1b8; border: 2px solid #dcb579; padding: 10px 15px; border-radius: 50px; cursor: pointer; font-weight: bold; box-shadow: 0 4px 15px rgba(0,0,0,0.4);">
+    ⚙️ Editar
+  </button>
 
   <script src="script.js"></script>
 </body>
